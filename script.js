@@ -12,6 +12,38 @@ document.addEventListener('DOMContentLoaded', () => {
   let mouseX = 0, mouseY = 0;
   let outerX = 0, outerY = 0;
 
+  // ── SKINVIEW3D: 3D skin renders using GitHub raw URLs (CORS-safe on Vercel) ──
+  function initSkinViewers() {
+    if (typeof skinview3d === 'undefined') return;
+
+    const BASE = 'https://raw.githubusercontent.com/rishishandilya55-lang/zeb-website/main/assets/';
+    const members = [
+      { id: 'skin-minecmasters', skin: BASE + 'minecmasters.png' },
+      { id: 'skin-itsmerishi',   skin: BASE + 'itsmerishi4228.png' },
+      { id: 'skin-altsensei',    skin: BASE + 'altsensei.png' },
+    ];
+
+    members.forEach(({ id, skin }) => {
+      const canvas = document.getElementById(id);
+      if (!canvas) return;
+
+      const viewer = new skinview3d.SkinViewer({ canvas, width: 220, height: 320 });
+      viewer.renderer.setClearColor(0x000000, 0);
+      viewer.globalLight.intensity = 4;
+      viewer.cameraLight.intensity = 0.8;
+
+      viewer.loadSkin(skin);
+
+      const walk = viewer.animations.add(skinview3d.WalkingAnimation);
+      walk.speed = 0.8;
+
+      viewer.autoRotate      = true;
+      viewer.autoRotateSpeed = 0.4;
+    });
+  }
+
+  window.addEventListener('load', initSkinViewers);
+
   document.addEventListener('mousemove', e => {
     mouseX = e.clientX;
     mouseY = e.clientY;

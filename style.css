@@ -847,13 +847,13 @@ button { cursor: none; font-family: inherit; border: none; background: none; }
 .team-skin { background: linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 100%); overflow: hidden; }
 .team-skin img { width: 100%; height: auto; transition: transform 0.5s ease; }
 
-/* Full body skin render */
+/* 3D skin viewer canvas */
 .team-skin.skin-preview-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 340px;
-  background: radial-gradient(ellipse at 50% 90%, rgba(139,92,246,0.15) 0%, #080810 70%);
+  background: radial-gradient(ellipse at 50% 90%, rgba(139,92,246,0.13) 0%, #080810 70%);
   position: relative;
   overflow: hidden;
 }
@@ -866,18 +866,12 @@ button { cursor: none; font-family: inherit; border: none; background: none; }
     linear-gradient(90deg, rgba(139,92,246,0.04) 1px, transparent 1px);
   background-size: 16px 16px;
 }
-.skin-full-body {
-  height: 320px;
-  width: auto;
+.skin-canvas {
   position: relative;
   z-index: 1;
-  filter: drop-shadow(0 4px 24px rgba(139,92,246,0.45));
-  transition: transform 0.4s ease, filter 0.4s ease;
+  transition: transform 0.4s ease;
 }
-.team-card:hover .skin-full-body {
-  transform: scale(1.06) translateY(-6px);
-  filter: drop-shadow(0 8px 36px rgba(139,92,246,0.7));
-}
+.team-card:hover .skin-canvas { transform: scale(1.04) translateY(-4px); }
 .team-card:hover .team-skin img { transform: scale(1.03); }
 .team-skin-empty {
   height: 220px;
