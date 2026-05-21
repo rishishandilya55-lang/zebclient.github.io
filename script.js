@@ -5,58 +5,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ─── SKINVIEW3D — 3D TEAM RENDERS ───────────────────
-  function applyPose(viewer, pose, rotateY) {
-    const m = viewer.playerObject.skin;
-    if (!m) return;
-
-    if (pose === 'archer') {
-      m.head.rotation.y       =  0.4;
-      m.head.rotation.x       = -0.1;
-      m.rightArm.rotation.x   = -1.35;
-      m.rightArm.rotation.z   = -0.25;
-      m.leftArm.rotation.x    = -1.0;
-      m.leftArm.rotation.z    =  0.45;
-      m.rightLeg.rotation.x   = -0.18;
-      m.leftLeg.rotation.x    =  0.22;
-
-    } else if (pose === 'victory') {
-      m.head.rotation.y       = -0.2;
-      m.head.rotation.x       = -0.12;
-      m.rightArm.rotation.z   = -2.2;
-      m.rightArm.rotation.x   = -0.15;
-      m.leftArm.rotation.z    =  2.2;
-      m.leftArm.rotation.x    = -0.15;
-      m.rightLeg.rotation.x   =  0.18;
-      m.leftLeg.rotation.x    = -0.18;
-
-    } else if (pose === 'sleeping') {
-      viewer.playerObject.rotation.z  =  1.55;
-      viewer.playerObject.rotation.y  =  0;
-      viewer.playerObject.position.x  =  6;
-      viewer.playerObject.position.y  = -12;
-      m.head.rotation.z               = -0.3;
-      m.head.rotation.y               =  0.3;
-      m.rightArm.rotation.z           = -0.6;
-      m.leftArm.rotation.z            =  0.6;
-      m.rightLeg.rotation.x           =  0.25;
-      m.leftLeg.rotation.x            = -0.15;
-    }
-  }
-
   function initSkinViewers() {
     if (typeof skinview3d === 'undefined') return;
 
+    // Use raw GitHub URLs to avoid CORS issues with canvas
+    const BASE = 'https://raw.githubusercontent.com/rishishandilya55-lang/zeb-website/main/assets/';
+
     const members = [
-      { id: 'skin-minecmasters', skinFile: 'assets/minecmasters.png',   pose: 'archer',   rotateY: -0.4 },
-      { id: 'skin-itsmerishi',   skinFile: 'assets/itsmerishi4228.png', pose: 'victory',  rotateY:  0   },
-      { id: 'skin-altsensei',    skinFile: 'assets/altsensei.png',      pose: 'sleeping', rotateY:  0.3 },
+      { id: 'skin-minecmasters', skin: BASE + 'minecmasters.png' },
+      { id: 'skin-itsmerishi',   skin: BASE + 'itsmerishi4228.png' },
+      { id: 'skin-altsensei',    skin: BASE + 'altsensei.png' },
     ];
 
-    members.forEach(({ id, skinFile, pose, rotateY }) => {
+    members.forEach(({ id, skin }) => {
       const canvas = document.getElementById(id);
       if (!canvas) return;
 
-      // Create viewer WITHOUT skin in constructor
       const viewer = new skinview3d.SkinViewer({
         canvas,
         width: 200,
@@ -64,30 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       viewer.renderer.setClearColor(0x000000, 0);
-      viewer.globalLight.intensity   = 3.5;
-      viewer.cameraLight.intensity   = 0.6;
-      viewer.camera.position.z       = 60;
-      viewer.camera.position.y       = 18;
-      viewer.camera.rotation.x       = -0.15;
-      viewer.playerObject.rotation.y = rotateY;
-      viewer.autoRotate              = false;
+      viewer.globalLight.intensity = 3.2;
+      viewer.cameraLight.intensity = 0.8;
 
-      // Load skin via Promise, THEN apply pose
-      viewer.loadSkin(skinFile)
-        .then(() => applyPose(viewer, pose, rotateY))
-        .catch(err => console.warn('Skin load failed:', skinFile, err));
+      // Load the skin
+      viewer.loadSkin(skin);
 
-      // Hover: slow spin, restore on leave
-      canvas.addEventListener('mouseenter', () => {
-        viewer.autoRotate      = true;
-        viewer.autoRotateSpeed = 0.8;
-      });
-      canvas.addEventListener('mouseleave', () => {
-        viewer.autoRotate              = false;
-        viewer.playerObject.rotation.y = rotateY;
-        // Re-apply pose after spin stops
-        setTimeout(() => applyPose(viewer, pose, rotateY), 50);
-      });
+      // Simple walking animation
+      const walk = viewer.animations.add(skinview3d.WalkingAnimation);
+      walk.speed = 0.8;
+
+      // Slow auto-rotate
+      viewer.autoRotate      = true;
+      viewer.autoRotateSpeed = 0.5;
     });
   }
 
