@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeb Client — Minecraft, Elevated.</title>
+  <meta name="description" content="Zeb Client is a premium Minecraft client packed with performance mods, a beautiful HUD editor, and a sleek launcher. Free to download.">
+  <link rel="canonical" href="https://zebclient.com/">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <meta property="og:title" content="Zeb Client">
+  <meta property="og:description" content="A premium Minecraft client. Fast, beautiful, free.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#8b5cf6">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-outer" id="cursor-outer"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="assets/logo.svg" alt="Zeb Client Logo" width="30" height="30">
+        <span>Zeb Client</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#features">Features</a>
+        <a href="#showcase">Showcase</a>
+        <a href="#compare">Compare</a>
+        <a href="#about">About</a>
+        <a href="#team">Team</a>
+        <div class="nav-indicator" id="nav-indicator"></div>
+      </div>
+      <div class="nav-actions">
+        <a href="#download" class="nav-cta">
+          <i class="fa-solid fa-download"></i> Download
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#features">Features</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#compare">Compare</a>
+      <a href="#about">About</a>
+      <a href="#team">Team</a>
+      <a href="#download" class="mobile-cta">Download Free</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-badge" data-aos="fade-down">
+        <span class="badge-dot"></span> Now in Beta — Free to Download
+      </div>
+      <h1 class="hero-h1" id="hero-heading">
+        Minecraft,<br><span class="gradient-text">Elevated.</span>
+      </h1>
+      <p class="hero-p">
+        A premium Minecraft client with <span class="highlight-num" data-count="30">30</span>+ built-in mods,
+        a beautiful HUD editor, and a blazing-fast launcher. Free. Always.
+      </p>
+      <div class="hero-actions">
+        <a href="#download" class="btn-primary" id="hero-download-btn">
+          <i class="fa-brands fa-windows"></i>
+          Download for Windows
+        </a>
+        <a href="https://discord.gg/" target="_blank" rel="noopener" class="btn-ghost">
+          <i class="fa-brands fa-discord"></i>
+          Join Discord
+        </a>
+      </div>
+    </div>
+    <div class="hero-showcase">
+      <div class="hero-showcase-glow"></div>
+      <img src="assets/launcher.png" alt="Zeb Client Launcher" class="hero-img" id="hero-img" onerror="this.style.display='none';document.getElementById('hero-placeholder').style.display='flex'">
+      <div class="hero-placeholder" id="hero-placeholder">
+        <div class="placeholder-inner">
+          <img src="assets/logo.svg" alt="" width="60" height="60">
+          <span>Launcher Preview</span>
+          <p>Add your launcher screenshot as <code>assets/launcher.png</code></p>
+        </div>
+      </div>
+      <div class="hero-tags">
+        <div class="hero-tag"><i class="fa-solid fa-bolt"></i> Performance Boost</div>
+        <div class="hero-tag"><i class="fa-solid fa-sliders"></i> 30+ Mods</div>
+        <div class="hero-tag"><i class="fa-solid fa-shield-halved"></i> Safe & Open</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-num counter" data-target="30">30</span><span>+</span>
+        <span class="stat-label">Built-in Mods</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num counter" data-target="14">14</span>
+        <span class="stat-label">MC Versions</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">100</span><span>%</span>
+        <span class="stat-label">Free to Use</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Pay-to-Win</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="contain">
+      <div class="section-header">
+        <span class="eyebrow">Features</span>
+        <h2>Built for players<br>who demand more.</h2>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-text" data-aos="fade-right">
+          <span class="feature-tag">Performance</span>
+          <h3>Faster frames,<br>smoother gameplay.</h3>
+          <p>Entity culling, frustum-based rendering, particle limits, and shadow optimization work together to push your FPS further. Every tweak is a toggle — if it doesn't help on your setup, switch it off.</p>
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-check"></i> Entity Culling</li>
+            <li><i class="fa-solid fa-check"></i> Sodium-Level Optimization</li>
+            <li><i class="fa-solid fa-check"></i> Configurable Particle Limits</li>
+          </ul>
+        </div>
+        <div class="feature-visual" data-aos="fade-left">
+          <div class="visual-glow"></div>
+          <img src="assets/hud-preview.png" alt="HUD Preview" loading="lazy">
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-text" data-aos="fade-left">
+          <span class="feature-tag">Launcher</span>
+          <h3>The launcher<br>you always wanted.</h3>
+          <p>A clean, dark, modern launcher with account switching, skin preview, version profiles, and news feed — all in one place. No bloat. Just launch and play.</p>
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-check"></i> Multi-Account Support</li>
+            <li><i class="fa-solid fa-check"></i> Version Profiles</li>
+            <li><i class="fa-solid fa-check"></i> Character Skin Preview</li>
+          </ul>
+        </div>
+        <div class="feature-visual" data-aos="fade-right">
+          <div class="visual-glow"></div>
+          <img src="assets/launcher.png" alt="Zeb Launcher" loading="lazy" onerror="this.src='assets/mods-preview.png'">
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-text" data-aos="fade-right">
+          <span class="feature-tag">Mods</span>
+          <h3><span class="counter gradient-text" data-target="30">30</span>+ mods,<br>zero setup.</h3>
+          <p>ArmorHUD, Coordinates, Minimap, Keystrokes, FPS counter, Zoom, ToggleSprint, Waypoints, and more — all ship with the client. Drag, configure, and go.</p>
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-check"></i> Drag-and-Drop HUD Editor</li>
+            <li><i class="fa-solid fa-check"></i> Per-Mod Config Panels</li>
+            <li><i class="fa-solid fa-check"></i> No External Installs</li>
+          </ul>
+        </div>
+        <div class="feature-visual" data-aos="fade-left">
+          <div class="visual-glow"></div>
+          <img src="assets/mods-preview.png" alt="Mods Panel" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Mods chip list -->
+    <div class="mods-chips-wrap">
+      <div class="contain">
+        <p class="mods-label">Everything included in the box:</p>
+      </div>
+      <div class="mods-chips-scroll">
+        <div class="mods-chips-track">
+          <span class="chip">ArmorHUD</span>
+          <span class="chip">Coordinates</span>
+          <span class="chip">CPS Counter</span>
+          <span class="chip">FPS Display</span>
+          <span class="chip">Keystrokes</span>
+          <span class="chip">Minimap</span>
+          <span class="chip">Ping Meter</span>
+          <span class="chip">Scoreboards</span>
+          <span class="chip">Waypoints</span>
+          <span class="chip">Zoom</span>
+          <span class="chip">ToggleSprint</span>
+          <span class="chip">AutoWalk</span>
+          <span class="chip">Freelook</span>
+          <span class="chip">FullBright</span>
+          <span class="chip">MotionBlur</span>
+          <span class="chip">DynamicLights</span>
+          <span class="chip">ChatMacros</span>
+          <span class="chip">Crosshair</span>
+          <span class="chip">HitColor</span>
+          <span class="chip">ItemPhysics</span>
+          <span class="chip">WeatherChanger</span>
+          <span class="chip">TimeChanger</span>
+          <span class="chip">FogCustomizer</span>
+          <span class="chip">NameTags</span>
+          <span class="chip">ServerInfo</span>
+          <span class="chip">DayCounter</span>
+          <span class="chip">Spectate</span>
+          <span class="chip">SmartDisconnect</span>
+          <span class="chip">HurtCam</span>
+          <!-- Repeat for infinite scroll effect -->
+          <span class="chip">ArmorHUD</span>
+          <span class="chip">Coordinates</span>
+          <span class="chip">CPS Counter</span>
+          <span class="chip">FPS Display</span>
+          <span class="chip">Keystrokes</span>
+          <span class="chip">Minimap</span>
+          <span class="chip">Ping Meter</span>
+          <span class="chip">Scoreboards</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE -->
+  <section class="showcase" id="showcase">
+    <div class="contain">
+      <div class="section-header">
+        <span class="eyebrow">Showcase</span>
+        <h2>See it in action.</h2>
+      </div>
+    </div>
+    <div class="gallery-wrap" id="gallery-wrap">
+      <div class="gallery-track" id="gallery-track">
+        <div class="gallery-item" data-caption="Zeb Launcher">
+          <img src="assets/launcher.png" alt="Zeb Client Launcher" onerror="this.parentElement.classList.add('placeholder-card')">
+          <div class="gallery-label">Launcher UI</div>
+        </div>
+        <div class="gallery-item" data-caption="In-Game HUD">
+          <img src="assets/hud-preview.png" alt="HUD Preview">
+          <div class="gallery-label">In-Game HUD</div>
+        </div>
+        <div class="gallery-item" data-caption="Mod Settings">
+          <img src="assets/mods-preview.png" alt="Mods Panel">
+          <div class="gallery-label">Mod Settings</div>
+        </div>
+        <div class="gallery-item" data-caption="Zeb Launcher 2">
+          <img src="assets/launcher.png" alt="Zeb Client Launcher" onerror="this.parentElement.classList.add('placeholder-card')">
+          <div class="gallery-label">Account System</div>
+        </div>
+        <div class="gallery-item" data-caption="HUD Editor">
+          <img src="assets/hud-preview.png" alt="HUD Editor">
+          <div class="gallery-label">HUD Editor</div>
+        </div>
+      </div>
+      <button class="gallery-arrow gallery-prev" id="gallery-prev" aria-label="Previous">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="gallery-arrow gallery-next" id="gallery-next" aria-label="Next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="gallery-dots" id="gallery-dots"></div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="compare" id="compare">
+    <div class="contain">
+      <div class="section-header">
+        <span class="eyebrow">Comparison</span>
+        <h2>How we stack up.</h2>
+        <p class="section-sub">A look at what makes Zeb Client stand out.</p>
+      </div>
+      <div class="compare-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th class="feature-col"></th>
+              <th class="zeb-col">
+                <img src="assets/logo.svg" alt="" width="20" height="20"> Zeb Client
+              </th>
+              <th><i class="fa-solid fa-moon"></i> Lunar</th>
+              <th><i class="fa-solid fa-shield"></i> Badlion</th>
+              <th><i class="fa-solid fa-flask"></i> LabyMod</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-col">Free Core Features</td>
+              <td class="zeb-col"><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-check ci-yes"></i></td>
+            </tr>
+            <tr>
+              <td class="feature-col">No Pay-to-Win</td>
+              <td class="zeb-col"><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-minus ci-mid"></i> Cosmetics</td>
+              <td><i class="fa-solid fa-minus ci-mid"></i> Cosmetics</td>
+              <td><i class="fa-solid fa-minus ci-mid"></i> Cosmetics</td>
+            </tr>
+            <tr>
+              <td class="feature-col">Built-in HUD Mods</td>
+              <td class="zeb-col"><i class="fa-solid fa-check ci-yes"></i> 30+</td>
+              <td><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-check ci-yes"></i></td>
+            </tr>
+            <tr>
+              <td class="feature-col">Custom Launcher</td>
+              <td class="zeb-col"><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-minus ci-mid"></i></td>
+              <td><i class="fa-solid fa-xmark ci-no"></i></td>
+            </tr>
+            <tr>
+              <td class="feature-col">Indie / Solo Made</td>
+              <td class="zeb-col"><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-xmark ci-no"></i></td>
+              <td><i class="fa-solid fa-xmark ci-no"></i></td>
+              <td><i class="fa-solid fa-xmark ci-no"></i></td>
+            </tr>
+            <tr>
+              <td class="feature-col">Skin Preview in Launcher</td>
+              <td class="zeb-col"><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-xmark ci-no"></i></td>
+              <td><i class="fa-solid fa-xmark ci-no"></i></td>
+            </tr>
+            <tr>
+              <td class="feature-col">Performance Mods Included</td>
+              <td class="zeb-col"><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-check ci-yes"></i></td>
+              <td><i class="fa-solid fa-minus ci-mid"></i> Partial</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compare-note">Comparison reflects general public knowledge as of 2026. Details may vary.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="contain">
+      <div class="section-header">
+        <span class="eyebrow">About</span>
+        <h2>What Zeb Client<br>is all about.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card" data-aos="fade-up" data-delay="0">
+          <span class="about-num">01</span>
+          <h3>Built for Players</h3>
+          <p>Every feature in Zeb Client was designed with real players in mind. No corporate roadmaps, no investor deadlines — just a tool built to make your Minecraft experience genuinely better. If a feature doesn't work, it doesn't ship.</p>
+        </div>
+        <div class="about-card" data-aos="fade-up" data-delay="100">
+          <span class="about-num">02</span>
+          <h3>Free at its Core</h3>
+          <p>Every gameplay feature is free — forever. All 30+ HUD mods, performance tweaks, minimap, waypoints, and quality-of-life tools ship with the client at no cost. Optional cosmetics exist but will never gate useful features.</p>
+        </div>
+        <div class="about-card" data-aos="fade-up" data-delay="200">
+          <span class="about-num">03</span>
+          <h3>Multi-Version Support</h3>
+          <p>Zeb Client supports a wide range of Minecraft versions. One launcher, one install, every version ready. When Mojang ships an update, Zeb follows — usually within days.</p>
+        </div>
+        <div class="about-card" data-aos="fade-up" data-delay="300">
+          <span class="about-num">04</span>
+          <h3>Indie & Proud</h3>
+          <p>Zeb Client is an indie project built with passion, not profit. That means faster iterations, honest communication, and a real relationship with the community. You talk, we listen, we build.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team" id="team">
+    <div class="contain">
+      <div class="section-header">
+        <span class="eyebrow">The Team</span>
+        <h2>Meet the people<br>behind Zeb.</h2>
+      </div>
+      <div class="team-grid">
+        <article class="team-card">
+          <div class="team-skin">
+            <img src="https://starlightskins.lunareclipse.studio/render/walking/MinecMasters/full" alt="MinecMasters" loading="lazy" width="200" height="280">
+          </div>
+          <div class="team-meta">
+            <h3 class="team-name">MinecMasters</h3>
+            <span class="team-role">Founder &amp; Developer</span>
+          </div>
+        </article>
+        <article class="team-card">
+          <div class="team-skin">
+            <img src="https://starlightskins.lunareclipse.studio/render/reading/itsmerishi4228/full" alt="itsmerishi4228" loading="lazy" width="200" height="280">
+          </div>
+          <div class="team-meta">
+            <h3 class="team-name">itsmerishi4228</h3>
+            <span class="team-role">Owner &amp; Developer</span>
+          </div>
+        </article>
+      </div>
+      <p class="team-note">Want to join the team? <a href="https://discord.gg/" target="_blank">Join our Discord</a> and apply.</p>
+    </div>
+  </section>
+
+  <!-- CTA / DOWNLOAD -->
+  <section class="cta" id="download">
+    <div class="contain">
+      <div class="cta-box">
+        <div class="cta-orb cta-orb-1"></div>
+        <div class="cta-orb cta-orb-2"></div>
+        <img src="assets/logo.svg" alt="" class="cta-logo" width="64" height="64">
+        <h2 class="cta-heading">Ready to play?</h2>
+        <p class="cta-text">Download Zeb Client free. No account required to get started.</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn-primary btn-lg" id="cta-download-btn">
+            <i class="fa-brands fa-windows"></i>
+            Download for Windows
+          </a>
+          <a href="https://discord.gg/" target="_blank" rel="noopener" class="btn-ghost">
+            <i class="fa-brands fa-discord"></i>
+            Join Discord
+          </a>
+        </div>
+        <div class="cta-meta">
+          <span><i class="fa-solid fa-shield-halved"></i> Safe & Virus-Free</span>
+          <span><i class="fa-solid fa-infinity"></i> Always Free</span>
+          <span><i class="fa-brands fa-windows"></i> Windows 10/11</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/logo.svg" alt="Zeb Client" width="26" height="26">
+            <span>Zeb Client</span>
+          </div>
+          <p>A premium Minecraft client, built by one developer for the community.</p>
+          <div class="footer-socials">
+            <a href="https://discord.gg/" target="_blank" rel="noopener" aria-label="Discord">
+              <i class="fa-brands fa-discord"></i>
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Client</h4>
+          <a href="#features">Features</a>
+          <a href="#showcase">Showcase</a>
+          <a href="#compare">Compare</a>
+          <a href="#download">Download</a>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <a href="https://discord.gg/" target="_blank" rel="noopener">Discord</a>
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="#team">Team</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Zeb Client. All rights reserved.</p>
+        <p class="footer-disc">Not affiliated with Mojang or Microsoft. Minecraft is a trademark of Mojang AB.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
+    <button class="lb-close" id="lb-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <img src="" alt="" class="lb-img" id="lb-img">
+    <div class="lb-caption" id="lb-caption"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0e6ff"/>
+      <stop offset="100%" style="stop-color:#c4b5fd"/>
+    </linearGradient>
+    <linearGradient id="tl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer border diamond -->
+  <polygon points="50,1 99,50 50,99 1,50" fill="none" stroke="rgba(167,139,250,0.35)" stroke-width="1.2"/>
+  <!-- Second inner border -->
+  <polygon points="50,8 92,50 50,92 8,50" fill="none" stroke="rgba(167,139,250,0.15)" stroke-width="0.8"/>
+  <!-- Top-right facet (darkest) -->
+  <polygon points="50,50 50,12 88,50" fill="#4c1d95"/>
+  <!-- Top-left facet (dark purple) -->
+  <polygon points="50,50 12,50 50,12" fill="url(#tl)"/>
+  <!-- Bottom-right facet (medium purple) -->
+  <polygon points="50,50 88,50 50,88" fill="#8b5cf6"/>
+  <!-- Bottom-left facet (lavender/light) -->
+  <polygon points="50,50 12,50 50,88" fill="url(#bl)"/>
+</svg>
