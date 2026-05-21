@@ -855,6 +855,19 @@ button { cursor: none; font-family: inherit; border: none; background: none; }
   padding: 16px 24px;
   background: linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 100%);
 }
+.team-skin.skin-3d {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 260px;
+  background: linear-gradient(180deg, #0d0d1e 0%, #0a0a14 100%);
+  overflow: hidden;
+}
+.skin-canvas {
+  display: block;
+  transition: transform 0.5s ease;
+}
+.team-card:hover .skin-canvas { transform: scale(1.04); }
 .team-card:hover .team-skin img { transform: scale(1.03); }
 .team-skin-empty {
   height: 220px;

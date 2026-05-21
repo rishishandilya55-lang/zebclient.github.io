@@ -4,6 +4,84 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ─── SKINVIEW3D — 3D TEAM RENDERS ───────────────────
+  function initSkinViewers() {
+    if (typeof skinview3d === 'undefined') return;
+
+    const members = [
+      {
+        id: 'skin-minecmasters',
+        skin: 'assets/minecmasters.png',
+        animation: 'walk',   // walking pose
+        animSpeed: 0.6
+      },
+      {
+        id: 'skin-itsmerishi',
+        skin: 'assets/itsmerishi4228.png',
+        animation: 'run',    // running pose
+        animSpeed: 0.9
+      },
+      {
+        id: 'skin-altsensei',
+        skin: 'assets/altsensei.png',
+        animation: 'idle',   // idle pose
+        animSpeed: 0.4
+      }
+    ];
+
+    members.forEach(({ id, skin, animation, animSpeed }) => {
+      const canvas = document.getElementById(id);
+      if (!canvas) return;
+
+      const viewer = new skinview3d.SkinViewer({
+        canvas,
+        width: 180,
+        height: 250,
+        skin,
+      });
+
+      // Transparent background so our CSS gradient shows
+      viewer.renderer.setClearColor(0x000000, 0);
+
+      // Subtle global light
+      viewer.globalLight.intensity = 3;
+      viewer.cameraLight.intensity = 1;
+
+      // Slight camera angle
+      viewer.camera.rotation.x = -0.2;
+      viewer.camera.position.y = 20;
+      viewer.camera.position.z = 55;
+
+      // Set animation per member
+      if (animation === 'walk') {
+        const anim = viewer.animations.add(skinview3d.WalkingAnimation);
+        anim.speed = animSpeed;
+      } else if (animation === 'run') {
+        const anim = viewer.animations.add(skinview3d.RunningAnimation);
+        anim.speed = animSpeed;
+      } else if (animation === 'idle') {
+        // Idle — just slow rotate
+        viewer.autoRotate = true;
+        viewer.autoRotateSpeed = 0.5;
+      }
+
+      // Pause/resume on hover for idle effect
+      canvas.addEventListener('mouseenter', () => {
+        viewer.autoRotate = animation !== 'idle';
+      });
+      canvas.addEventListener('mouseleave', () => {
+        viewer.autoRotate = animation === 'idle';
+      });
+    });
+  }
+
+  // Wait for skinview3d to load
+  if (document.readyState === 'complete') {
+    initSkinViewers();
+  } else {
+    window.addEventListener('load', initSkinViewers);
+  }
+
   // ─── CUSTOM CURSOR ──────────────────────────────────
   const cursor = document.getElementById('cursor');
   const cursorOuter = document.getElementById('cursor-outer');
